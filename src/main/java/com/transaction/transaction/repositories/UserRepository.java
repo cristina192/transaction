@@ -1,6 +1,6 @@
 package com.transaction.transaction.repositories;
 
-import com.transaction.transaction.domain.user.User;
+import com.transaction.transaction.domain.users.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

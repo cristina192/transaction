@@ -1,4 +1,4 @@
-package com.transaction.transaction.domain.user;
+package com.transaction.transaction.domain.users;
 
 public enum UserType {
 

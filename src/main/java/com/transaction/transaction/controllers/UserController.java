@@ -1,6 +1,6 @@
 package com.transaction.transaction.controllers;
 
-import com.transaction.transaction.domain.user.User;
+import com.transaction.transaction.domain.users.User;
 import com.transaction.transaction.dtos.UserDTO;
 import com.transaction.transaction.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<User>createUser RequestBody(UserDTO user){
+    public ResponseEntity<User>createUser (@RequestBody UserDTO user){
         User newUser=userService.createUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }

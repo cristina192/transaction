@@ -1,7 +1,7 @@
 package com.transaction.transaction.services;
 
-import com.transaction.transaction.domain.user.User;
-import com.transaction.transaction.domain.user.UserType;
+import com.transaction.transaction.domain.users.User;
+import com.transaction.transaction.domain.users.UserType;
 import com.transaction.transaction.dtos.UserDTO;
 import com.transaction.transaction.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +24,15 @@ public class UserService {
         }
     }
     public User findUserById(Long id)throws Exception{
-        return this.repository.findUserById(id).orElseThrow(()-> new Exception("usuario nao encontrado"))
+        return this.repository.findUserById(id).orElseThrow(()-> new Exception("usuario nao encontrado"));
     }
-    public User createUser(UserDTO user){
+    public User createUser(UserDTO data){
         User newUser=new User(data);
         this.saveUser(newUser);
         return newUser;
     }
-    public List<User>getAllUsers(){
-        return this.repository.findAll();
+    public List<User>getAllUsers(){return this.repository.findAll();
     }
-    public  void saveUser(User user){
-        this.repository.save(user);
+    public  void saveUser(User user){this.repository.save(user);
     }
 }

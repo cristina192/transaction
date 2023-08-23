@@ -1,6 +1,6 @@
 package com.transaction.transaction.dtos;
 
-import com.transaction.transaction.domain.user.UserType;
+import com.transaction.transaction.domain.users.UserType;
 
 import java.math.BigDecimal;
 

@@ -2,6 +2,7 @@ package com.transaction.transaction.services;
 
 import com.transaction.transaction.TransactionApplication;
 import com.transaction.transaction.domain.transaction.Transaction;
+import com.transaction.transaction.domain.users.User;
 import com.transaction.transaction.dtos.TransactionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class TransactionService {
     private UserService userService;
 
     @Autowired
-    private RestTemplate;
+    private RestTemplate restTemplate;
 
     @Autowired
     private TransactionApplication repository;
@@ -36,6 +37,7 @@ public class TransactionService {
         boolean isAuthorized = this.authorizeTransaction(comprador,transaction.value());
         if(!isAuthorized) {
             throw new Exception("transação não autorizada");
+            }
 
             Transaction newTransaction = new Transaction();
             newTransaction.setAmount(transaction.value());
@@ -52,15 +54,14 @@ public class TransactionService {
             this.notificationService.sendNotification(comprador,"transação efetuada com sucesso");
             this.notificationService.sendNotification(vendedor,"transação efetuada com sucesso");
 
+            return newTransaction;
+           }
 
-        }
-
-    }
     public boolean authorizeTransaction(User comprador, BigDecimal value){
         ResponseEntity<Map>authorizationResponse = restTemplate.getForEntity("url",Map.class);
         if(authorizationResponse.getStatusCode()== HttpStatus.OK){
             String message = (String)authorizationResponse.getBody().get("message");
-            return "autorizado".equalsIgnoreCase(message);
+            return "Autorizado".equalsIgnoreCase(message);
 
         }else return false;
     }
