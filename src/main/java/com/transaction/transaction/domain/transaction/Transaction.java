@@ -20,11 +20,11 @@ public class Transaction {
     private Long id;
     private BigDecimal amount;
 
-    @JoinColumn(name="comprador_id")
+    @JoinColumn(name="comprador_Id")
     @ManyToOne
     private User comprador;
 
-    @JoinColumn(name="vendedor_id")
+    @JoinColumn(name="vendedor_Id")
     @ManyToOne
     private User vendedor;
 

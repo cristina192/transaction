@@ -1,5 +1,6 @@
 package com.transaction.transaction.services;
 
+import com.transaction.transaction.domain.transaction.Transaction;
 import com.transaction.transaction.domain.users.User;
 import com.transaction.transaction.domain.users.UserType;
 import com.transaction.transaction.dtos.UserDTO;
@@ -35,4 +36,5 @@ public class UserService {
     }
     public  void saveUser(User user){this.repository.save(user);
     }
+
 }

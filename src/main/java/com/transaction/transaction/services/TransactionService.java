@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -51,6 +52,7 @@ public class TransactionService {
             this.repository.save(newTransaction);
             this.userService.saveUser(comprador);
             this.userService.saveUser(vendedor);
+
             this.notificationService.sendNotification(comprador,"transação efetuada com sucesso");
             this.notificationService.sendNotification(vendedor,"transação efetuada com sucesso");
 
@@ -65,4 +67,6 @@ public class TransactionService {
 
         }else return false;
     }
+
+
 }
